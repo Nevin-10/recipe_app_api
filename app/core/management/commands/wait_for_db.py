@@ -9,10 +9,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         """Entry point for command"""
         self.stdout.write("Waiting for database..")
+        # BaseCommand Methods self.stdout.write()
         db_up = False
         while db_up is False:
             try:
                 self.check(databases=['default'])
+                # self.check() is method of BaseCommand
                 db_up = True
                 """When Database is Available True
                   and Break while else,keep on doing."""
